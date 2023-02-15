@@ -7,10 +7,12 @@ const app = express();
 //Conectamos a la base de datos
 conectarDB()
 
+app.use(express.json())
+
 //Definimos rutas
-app.get('/', (req,res) =>{
-    res.send('Holisssss')
-})
+
+app.use('/api/productos', require('./routes/producto'))
+
 
 app.listen(4000, ()=>{
     console.log('el servidor esta corriendo en el puerto 4000')
